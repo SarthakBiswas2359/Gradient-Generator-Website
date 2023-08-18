@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="Gradient Generator.css">
+    <link rel="icon" href="https://img.icons8.com/?size=512&id=H083uKcKQDpF&format=png" type="image/png">    
+	<title>Gradient Generator</title>
+</head>
+
+<body id="gradient">
+	<h1>Gradient Generator</h1>
+	<h3>Current background</h3>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<div class="centerColor">
+		<input oninput="setGradient()" type="color" id="color1" value="#00FFFF">
+		
+		<input oninput="setGradient()" type="color" id="color2" value="#FF0000">
+	</div>
+
+	<div class="centerHexPara">
+		<p id="hex"></p>
+		<p id="anotherHex"></p>
+
+	</div>
+
+	<div class="info">
+        <span></span>
+		<br><br><br>
+        <h6></h6>
+	</div>
+	
+	
+
+	<script type="text/javascript">
+		var c1 = document.getElementById("color1");
+		var c2 = document.getElementById("color2");
+		var body = document.getElementById("gradient");
+		var css = document.querySelector("h6");
+        var span = document.querySelector("span")
+		function setGradient() {
+			body.style.background = "linear-gradient(to right," + c1.value + "," + c2.value + ")";
+			hex1 = document.getElementById("hex");
+			hex1.innerHTML = c1.value;
+			hex2 = document.getElementById("anotherHex");
+			hex2.innerHTML = c2.value;
+			css.textContent = body.style.background + ";";
+            span.style.transition="2s";
+            span.innerHTML="CSS";
+		}
+		// c1.addEventListener("input", setGradient);
+		// c2.addEventListener("input", setGradient);
+	</script>
+
+</body>
+
+</html>
